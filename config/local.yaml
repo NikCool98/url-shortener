@@ -1,0 +1,12 @@
+env: "local"
+storage_path: "./scheduler/scheduler.db"
+http_server:
+  address: "localhost:8082"
+  timeout: 5s
+db:
+  host: localhost
+  port: 5432
+  name: todo_db
+  user: postgres
+  password: short_db
+  schema: postgres
