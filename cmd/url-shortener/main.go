@@ -29,6 +29,12 @@ func main() {
 	}
 	defer storage.DB.Close()
 
+	id, err := storage.SaveURL("https://yandex.com", "yandex")
+	if err != nil {
+		log.Error("failed to save url", sl.Err(err))
+		os.Exit(1)
+	}
+	log.Info("url save successfull", slog.Int64("id", id))
 }
 
 func setupLogger(env string) *slog.Logger {

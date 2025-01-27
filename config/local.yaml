@@ -6,7 +6,7 @@ http_server:
 db:
   host: localhost
   port: 5432
-  name: todo_db
+  name: short_db
   user: postgres
-  password: short_db
+  password: postgres
   schema: postgres
