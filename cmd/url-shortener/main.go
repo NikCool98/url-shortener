@@ -29,12 +29,19 @@ func main() {
 	}
 	defer storage.DB.Close()
 
-	id, err := storage.SaveURL("https://yandex.com", "yandex")
+	url, err := storage.GetUrl("yandex")
 	if err != nil {
-		log.Error("failed to save url", sl.Err(err))
+		log.Error("failed to get url", sl.Err(err))
 		os.Exit(1)
 	}
-	log.Info("url save successfull", slog.Int64("id", id))
+	log.Info("url get successfull", slog.String("url", url))
+
+	err = storage.DeleteUrl("google")
+	if err != nil {
+		log.Error("failed to delete url", sl.Err(err))
+		os.Exit(1)
+	}
+	fmt.Println("url delete successfull")
 }
 
 func setupLogger(env string) *slog.Logger {

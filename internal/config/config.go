@@ -29,6 +29,12 @@ type HTTPServer struct {
 	IddleTimeout time.Duration `yaml: "iddle_timeout"`
 }
 
+type AliasUrl struct {
+	AliasID string `json:"id"`
+	Alias   string `json:"alias"`
+	Url     string `json:"url"`
+}
+
 func MustLoad() *Config {
 	configpath := "./config/local.yaml"
 	if configpath == "" {
